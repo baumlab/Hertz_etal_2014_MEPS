@@ -7,5 +7,5 @@ In PPMR_functions.R
 
 2) Function to simulate community of organisms across log2 body mass classes with corresponding nitrogen isotope values, and both additive and scaled TP estimates.
 
- https://zenodo.org/record/11940
+[![DOI](https://zenodo.org/badge/6449/baumlab/ppmr-isotopes.png)](http://dx.doi.org/10.5281/zenodo.11940)
  
