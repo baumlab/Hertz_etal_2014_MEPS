@@ -68,8 +68,9 @@ ppmr<-function(logbase=2, b){
 
 ## Arguments - Nbase = baseline N values; mass = range of body masses; TPbase = baseline trophic position
 ##           - n = change in d15N between mass classes (default = 1)
+## 			 - trophic = use to set a low or high nitrogen community. e.g. trophic = 6 increases all 15N values by 6
 
-nitrogen_data_func<-function(Nbase=c(2:10), mass=c(2:12),TPbase=2, n=1){
+nitrogen_data_func<-function(Nbase=c(2:10), mass=c(2:12),TPbase=2, n=1, trophic=0){
 
 ## Set up Nbase and mass values.
 
@@ -99,7 +100,7 @@ repeat{
 	
 	j<-j+1
 	
-	data[j,2]<-n+data[j-1,2]
+	data[j,2]<-n+data[j-1,2] + trophic
 	
 	if(j==length(mass)) {break}
 }
