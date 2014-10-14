@@ -2,6 +2,8 @@
 ### Script accompanying Hertz et al. (2014) Estimation of predator-prey mass ratios using stable isotopes: sources of errors.
 ##  https://github.com/baumlab/ppmr-isotopes
 ##  
+## Script written by JPW Robinson (June 2014)
+## Script tested by E Hertz (October 2014)
 
 
 #### Function details
@@ -16,7 +18,7 @@
  k<--log((5.92 - Nlim)/-Nlim)
 
 
-hussey_tp<-function(Nbase=9, NTP, Nlim=Nlim, k=k, TPbase=2.5){
+hussey_tp<-function(Nbase=9, NTP, TPbase=2.5){
 
 
  TP<-(log(Nlim - Nbase) - log(Nlim - NTP))/k + TPbase
@@ -30,7 +32,7 @@ return(TP)
 ## Arguments: Nbase = baseline 15N (default = 9); NTP = d15N estimates; TPbase = baseline trophic position
 ## Returns: additive trophic positions
 
-orig_tp<-function(Nbase=9, NTP) {
+orig_tp<-function(Nbase=9, NTP, TPbase=2) {
 
 
 	TP_orig<-TPbase + (NTP - Nbase)/3.4
@@ -67,7 +69,7 @@ ppmr<-function(logbase=2, b){
 ## Arguments - Nbase = baseline N values; mass = range of body masses; TPbase = baseline trophic position
 ##           - n = change in d15N between mass classes (default = 1)
 
-nitrogen_data_func<-function(Nbase=c(2:14), mass=c(2:12),  TPbase=2, n=1){
+nitrogen_data_func<-function(Nbase=c(2:10), mass=c(2:12),TPbase=2, n=1){
 
 ## Set up Nbase and mass values.
 
@@ -90,7 +92,7 @@ j<-1
 
 ## add n (default = 1) to each 15N mass class estimate
 
-data[j,2]<-n + data[j,3] + 6.5
+data[j,2]<-n + data[j,3] 
 
 repeat{   
 
